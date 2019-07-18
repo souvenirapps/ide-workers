@@ -7,7 +7,10 @@ DIR=$(cd -)
 for lang in $(ls "$DIR/containers")
 do
     cd ${DIR}/containers/${lang}
-    ls ${DIR}
+
+    echo "CURRENT DIR: ${DIR}/containers/${lang}"
+    ls ${DIR}/containers/${lang}
+    
     docker image rm ifaisalalam/ide-worker-${lang}
     docker build -t ifaisalalam/ide-worker-${lang}
     cd ${DIR}
