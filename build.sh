@@ -10,8 +10,8 @@ do
 
     echo "CURRENT DIR: ${DIR}/containers/${lang}"
     ls ${DIR}/containers/${lang}
-    
-    docker image rm ifaisalalam/ide-worker-${lang}
+
+    docker image rm ifaisalalam/ide-worker-${lang} 2> /dev/null
     docker build -t ifaisalalam/ide-worker-${lang}
     cd ${DIR}
 done
