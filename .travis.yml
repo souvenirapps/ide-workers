@@ -14,6 +14,11 @@ services:
   - docker
 
 before_install:
+  - sudo chmod +x build.sh
+  - sudo chmod +x test.sh
+  - sudo chmod +x push_docker_images.sh
+
+before_script:
   - ./build.sh
 
 script:
