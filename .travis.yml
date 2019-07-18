@@ -1,0 +1,23 @@
+language: generic
+sudo: required
+
+branches:
+  only:
+    - master
+
+addons:
+  apt:
+    packages:
+      - bash
+
+services:
+  - docker
+
+before_install:
+  - ./build.sh
+
+script:
+  - ./test.sh
+
+after_success:
+  - ./push_docker_images.sh
