@@ -17,16 +17,32 @@ addons:
 services:
   - docker
 
-before_install:
-  - sudo chmod +x build.sh
-  - sudo chmod +x test.sh
-  - sudo chmod +x push_docker_images.sh
+jobs:
+  include:
+    - stage: test
+      before_install:
+        - sudo chmod +x build.sh
+        - sudo chmod +x test.sh
+      before_script:
+        - ./build.sh
+      script:
+        - ./test.sh
 
-before_script:
-  - ./build.sh
+    - stage: deploy
+      before_install:
+        - sudo chmod +x build.sh
+        - sudo chmod +x test.sh
+        - sudo chmod +x push_docker_images.sh
+      before_script:
+        - ./build.sh
+      script:
+        - ./test.sh
+      after_success:
+        - ./push_docker_images.sh
 
-script:
-  - ./test.sh
-
-after_success:
-  - ./push_docker_images.sh
+notifications:
+  email:
+    on_success: always
+    on_failure: always
+    recipients:
+      - ifaisalalam@gmail.com
