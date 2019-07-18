@@ -15,7 +15,7 @@ cp -fv ${DIR}/run.stdin ${RUN_BOX}/run.stdin
 
 docker run \
     --cpus="0.5" \
-    --memory="30m" \
+    --memory="50m" \
     --ulimit nofile=64:64 \
     --rm \
     --read-only \
