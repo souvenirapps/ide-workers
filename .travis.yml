@@ -5,6 +5,10 @@ branches:
   only:
     - master
 
+env:
+  global:
+    - PATH=${TRAVIS_BUILD_DIR/bats/bin}:${PATH}
+
 addons:
   apt:
     packages:
