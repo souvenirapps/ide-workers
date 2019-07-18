@@ -12,6 +12,6 @@ do
     ls ${DIR}/containers/${lang}
 
     docker image rm ifaisalalam/ide-worker-${lang} 2> /dev/null
-    docker build -t ifaisalalam/ide-worker-${lang}
+    docker build -t ifaisalalam/ide-worker-${lang} .
     cd ${DIR}
 done
