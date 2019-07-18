@@ -40,6 +40,10 @@ jobs:
       after_success:
         - ./push_docker_images.sh
 
+stages:
+  - name: test
+    if: type = pull_request
+
 notifications:
   email:
     on_success: always
