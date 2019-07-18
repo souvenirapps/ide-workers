@@ -43,6 +43,8 @@ jobs:
 stages:
   - name: test
     if: type = pull_request
+  - name: deploy
+    if: type = push
 
 notifications:
   email:
