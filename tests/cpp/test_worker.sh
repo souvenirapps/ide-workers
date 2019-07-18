@@ -32,7 +32,7 @@ actual="$(cat ${RUN_BOX}/run.stdout)"
 rm -rf ${RUN_BOX}
 
 if [[ "$expected" == "$actual" ]]; then
-    echo "$DIR : TEST SUCCESS"
+    echo "$DIR : TEST SUCCESS : Expected = $expected; Actual = $actual"
 else
     echo "MISMATCH: Expected = $expected; Actual = $actual"
     exit 1
