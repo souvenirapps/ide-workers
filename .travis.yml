@@ -36,9 +36,7 @@ jobs:
       before_script:
         - ./build.sh
       script:
-        - ./test.sh
-      after_success:
-        - ./push_docker_images.sh
+        - ./test.sh && ./push_docker_images.sh
 
 stages:
   - name: test
