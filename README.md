@@ -1,6 +1,6 @@
 # IDE Workers
 
-[![Build Status](https://travis-ci.com/ifaisalalam/ide-worker.svg?branch=master)](https://travis-ci.com/ifaisalalam/ide-worker)
+[![Build Status](https://travis-ci.com/ifaisalalam/ide-workers.svg?branch=master)](https://travis-ci.com/ifaisalalam/ide-workers)
 
 This repository contains the workers source in which the code is actually executed.
 
