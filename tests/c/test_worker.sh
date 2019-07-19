@@ -10,7 +10,7 @@ echo ${RUN_BOX};
 
 mkdir -p ${RUN_BOX}
 
-cp -fv ${DIR}/source.cpp ${RUN_BOX}/source.c
+cp -fv ${DIR}/source.c ${RUN_BOX}/source.c
 cp -fv ${DIR}/run.stdin ${RUN_BOX}/run.stdin
 
 docker run \
