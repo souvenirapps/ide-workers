@@ -49,4 +49,4 @@ notifications:
     on_success: always
     on_failure: always
     recipients:
-      - ifaisalalam@gmail.com
+      - tech@ctfhub.io
