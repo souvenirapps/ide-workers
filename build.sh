@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 
-cd $(dirname "$0")
+cd "$(dirname "$0")" || exit 1
 
-DIR=$(cd -)
+DIR="$(cd - || exit 1)"
 
-for lang in $(ls "$DIR/containers")
+for lang in containers/*
 do
-    cd ${DIR}/containers/${lang}
-    docker image rm ifaisalalam/ide-worker-${lang} 2> /dev/null
-    docker build -t ifaisalalam/ide-worker-${lang} .
-    cd ${DIR}
+    cd "${lang}/" || exit 1
+
+    LANG="$(echo "${lang}" | cut -d'/' -f2)"
+    CONTAINER="ifaisalalam/ide-worker-${LANG}"
+
+    docker image rm "${CONTAINER}" 2> /dev/null
+    docker build -t "${CONTAINER}" .
+    cd "${DIR}" || exit 1
 done
