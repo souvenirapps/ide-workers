@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-chmod 755 exe
-
 if [ -z "$DEFAULT_TIMEOUT" ]; then
   export DEFAULT_TIMEOUT=5
 fi
