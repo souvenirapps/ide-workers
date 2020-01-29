@@ -10,7 +10,7 @@ echo "${RUN_BOX}";
 
 mkdir -p "${RUN_BOX}"
 
-cp -fv "${DIR}/source.cpp" "${RUN_BOX}/source.cpp"
+cp -fv "${DIR}/source.py" "${RUN_BOX}/source.py"
 echo "" > "${RUN_BOX}/run.stdin"
 
 docker run \
