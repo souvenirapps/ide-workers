@@ -1,6 +1,6 @@
 FROM alpine:3.10
 
-RUN apk add --no-cache python3 bash
+RUN apk add --no-cache bash python3
 
 COPY compile.sh /bin/compile.sh
 
