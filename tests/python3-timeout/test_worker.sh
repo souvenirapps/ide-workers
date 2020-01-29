@@ -10,7 +10,7 @@ echo "${RUN_BOX}";
 
 mkdir -p "${RUN_BOX}"
 
-cp -fv "${DIR}/source.cpp" "${RUN_BOX}/source.cpp"
+cp -fv "${DIR}/source.py" "${RUN_BOX}/source.py"
 echo "" > "${RUN_BOX}/run.stdin"
 
 docker run \
@@ -29,7 +29,7 @@ ls -lh "${RUN_BOX}"
 expected="TLE: Execution exceeded the maximum timelimit."
 actual="$(cat "${RUN_BOX}/tle.stderr")"
 
-rm -rf "${RUN_BOX}"
+#rm -rf "${RUN_BOX}"
 
 if [[ "$expected" == "$actual" ]]; then
     echo "$DIR : TEST SUCCESS : Expected = $expected; Actual = $actual"
