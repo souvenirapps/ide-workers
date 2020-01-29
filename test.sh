@@ -15,3 +15,11 @@
 @test "test c-timeout" {
     bash tests/c-timeout/test_worker.sh
 }
+
+@test "test python2" {
+  bash tests/python2/test_worker.sh
+}
+
+@test "test python2-timeout" {
+  bash tests/python2-timeout/test_worker.sh
+}
