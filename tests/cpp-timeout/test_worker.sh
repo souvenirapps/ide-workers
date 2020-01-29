@@ -27,7 +27,7 @@ docker run \
 ls -lh "${RUN_BOX}"
 
 expected="TLE: Execution exceeded the maximum timelimit."
-actual="$(cat "${RUN_BOX}/run.stderr")"
+actual="$(cat "${RUN_BOX}/tle.stderr")"
 
 rm -rf "${RUN_BOX}"
 
