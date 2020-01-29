@@ -23,3 +23,11 @@
 @test "test python2-timeout" {
   bash tests/python2-timeout/test_worker.sh
 }
+
+@test "test python3" {
+  bash tests/python3/test_worker.sh
+}
+
+@test "test python3-timeout" {
+  bash tests/python3-timeout/test_worker.sh
+}
