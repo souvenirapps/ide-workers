@@ -29,7 +29,11 @@ ls -lh "${RUN_BOX}"
 expected="Hello world"
 actual="$(cat "${RUN_BOX}"/run.stdout)"
 
+time_taken="$(< "${RUN_BOX}"/time.log tail -n 1)"
+
 rm -rf "${RUN_BOX}"
+
+echo "Time taken = $time_taken seconds."
 
 if [[ "$expected" == "$actual" ]]; then
     echo "$DIR : TEST SUCCESS : Expected = $expected; Actual = $actual"
