@@ -13,11 +13,14 @@ A Worker is a docker image which runs the code.
 
 ## Base Image
 
-All worker images are built on top of [alpine linux](https://alpinelinux.org/) 3.10
+All worker images are built on top of [Alpine Linux](https://alpinelinux.org/) 3.10, except NodeJS 8 worker which is build on top of [Alpine Linux](https://alpinelinux.org/) 3.7.
 
 ## Supported Languages
 
 Presently, the workers support the following languages:
 
- - [c](containers/c)
- - [c++](containers/cpp)
+ - [C](containers/c)
+ - [C++](containers/cpp)
+ - [Python 2](containers/python2)
+ - [Python 3](containers/python3)
+ - [NodeJS 8](containers/nodejs8)
