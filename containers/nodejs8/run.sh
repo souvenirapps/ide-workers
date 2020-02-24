@@ -4,4 +4,8 @@ if [ -z "$DEFAULT_TIMEOUT" ]; then
   export DEFAULT_TIMEOUT=5
 fi
 
-/usr/bin/time -f "%e" -o time.log timeout -t $DEFAULT_TIMEOUT bash -c "node source.js < run.stdin 2> run.stderr 1> run.stdout || true" || echo "TLE: Execution exceeded the maximum timelimit." > tle.stderr
+/usr/local/bin/time -f "%e\n%MKB\n%x" -o time.log -q -e run.stderr -u run.stdout -k run.stdin -t $DEFAULT_TIMEOUT node ./source.js
+
+if [[ $? == 124 ]]; then
+  echo "TLE: Execution exceeded the maximum timelimit." > tle.stderr
+fi
