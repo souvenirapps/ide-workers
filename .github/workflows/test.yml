@@ -1,0 +1,32 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - master
+      - 'release/**'
+  pull_request:
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  CONTAINER_BASE_PATH: gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.GCR_BASE_PATH }}
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Update System PATH
+        run: echo "::add-path::$GITHUB_WORKSPACE/bats/bin"
+
+      - name: Build Workers
+        run: ./build.sh
+
+      - name: Run Tests
+        run: ./test.sh

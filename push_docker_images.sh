@@ -1,14 +1,18 @@
 #!/usr/bin/env bash
 
-cd $(dirname "$0")
+cd "$(dirname "$0")" || exit 1
 
-DIR=$(cd -)
+DIR="$(cd - || exit 1)"
 
-echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+gcloud auth configure-docker
 
-for lang in $(ls "$DIR/containers")
+for lang in containers/*
 do
-    cd ${DIR}/containers/${lang}
-    docker push ifaisalalam/ide-worker-${lang}
-    cd ${DIR}
+    cd "${lang}/" || exit 1
+
+    LANG="$(echo "${lang}" | cut -d'/' -f2)"
+    CONTAINER="$CONTAINER_BASE_PATH/ide-worker-${LANG}"
+
+    docker push "$CONTAINER"
+    cd "${DIR}" || exit 1
 done
